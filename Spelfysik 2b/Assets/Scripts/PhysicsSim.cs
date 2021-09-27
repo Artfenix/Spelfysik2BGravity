@@ -84,17 +84,6 @@ public class PhysicsSim : MonoBehaviour {
 			moon.transform.position += moon.velocity * _timeStep;
 		}
 	}
-	private void OnDrawGizmos() {
-		Gizmos.color = Color.red;
-		Gizmos.DrawRay(transform.position, _gravDir);
-
-		for (int i = 0; i < moons.Count; i++) {
-			for (int j = i + 1; j < moons.Count; j++) {
-				Gizmos.color = Color.cyan;
-				Gizmos.DrawLine(moons[i].transform.position, moons[j].transform.position);
-			}
-		}
-	}
 
 	public void ToggleGravity() {
 		gravityEnabled = !gravityEnabled;
