@@ -10883,7 +10883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0.012303539
   velocity: {x: 0, y: 0, z: 6.94561}
-  text: {fileID: 914616372}
+  text: {fileID: 0}
 --- !u!135 &635992408
 SphereCollider:
   m_ObjectHideFlags: 0
