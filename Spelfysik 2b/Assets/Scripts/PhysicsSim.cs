@@ -99,4 +99,10 @@ public class PhysicsSim : MonoBehaviour {
 	public void ToggleGravity() {
 		gravityEnabled = !gravityEnabled;
 	}
+
+	public void ResetTransforms() {
+		foreach (var moon in moons) {
+			moon.ResetTransform();
+		}
+	}
 }

@@ -19,6 +19,6 @@ public class CameraController : MonoBehaviour
     {
         float dist = 2 * (transform1.transform.position - transform0.transform.position).magnitude;
 
-        transform.position = (transform1.transform.position * transform1.mass - transform0.transform.position * transform0.mass) / (transform0.mass + transform1.mass) + Vector3.up * dist;
+        transform.position = (transform1.transform.position * transform1.mass + transform0.transform.position * transform0.mass) / (transform0.mass + transform1.mass) + Vector3.up * dist;
     }
 }
