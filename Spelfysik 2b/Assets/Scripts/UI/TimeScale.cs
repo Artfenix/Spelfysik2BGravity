@@ -6,27 +6,13 @@ using UnityEngine.UI;
 public class TimeScale : MonoBehaviour
 {
     public Text text;
-    public MoonBehaviour moon;
-    public MoonBehaviour earth;
+    public PhysicsSim sim;
     public Timer timer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetTimeScale(float f)
     {
         text.text = "Time Scale: " + f;
-        moon.timeScale = f;
-        earth.timeScale = f;
+        sim.timeScale = f;
         timer.timeScale = f;
     }
 }
