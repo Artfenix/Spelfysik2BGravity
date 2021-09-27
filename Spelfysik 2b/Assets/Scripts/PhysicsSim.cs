@@ -23,7 +23,7 @@ public class PhysicsSim : MonoBehaviour {
 	public float updatesPerSecond = 50;
 	public int delay = 2;
 
-	public List<MoonBehaviour> moons;
+	public static List<MoonBehaviour> moons = new List<MoonBehaviour>();
 
 	private Vector3 _gravDir;
 	private float _timeStep;

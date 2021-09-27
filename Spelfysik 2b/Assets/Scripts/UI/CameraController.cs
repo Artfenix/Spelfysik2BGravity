@@ -5,8 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Camera mainCamera;
-    public MoonBehaviour transform0;
-    public MoonBehaviour transform1;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +15,21 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dist = 2 * (transform1.transform.position - transform0.transform.position).magnitude;
+        Vector3 centerOfGravity = Vector3.zero;
+        float totalMass = 0;
+        float maxDist = 0;
 
-        transform.position = (transform1.transform.position * transform1.mass + transform0.transform.position * transform0.mass) / (transform0.mass + transform1.mass) + Vector3.up * dist;
+        foreach (var moon in PhysicsSim.moons) {
+            centerOfGravity += moon.transform.position * moon.mass;
+            totalMass += moon.mass;
+		}
+
+        foreach (var moon0 in PhysicsSim.moons) {
+            foreach (var moon1 in PhysicsSim.moons) {
+                maxDist = Mathf.Max(maxDist, (moon1.transform.transform.position - moon0.transform.transform.position).magnitude);
+            }
+        }
+
+        transform.position = centerOfGravity / totalMass + Vector3.up * 2 * maxDist;
     }
 }

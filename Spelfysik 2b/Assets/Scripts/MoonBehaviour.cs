@@ -16,6 +16,16 @@ public class MoonBehaviour : MonoBehaviour {
 		}
 	}
 
+	private void OnEnable() {
+		if (!PhysicsSim.moons.Contains(this)) {
+			PhysicsSim.moons.Add(this);
+		}
+	}
+
+	private void OnDisable() {
+		PhysicsSim.moons.Remove(this);
+	}
+
 	public void ResetTransform() {
 		transform.position = _prefab.transform.position;
 		velocity = _prefab.velocity;
